@@ -7,12 +7,58 @@
     - inteiro ou decimal.
     */
 
-    //ENTRADA
+    const número1 = Number(prompt(`Informe um número `).replace(`,`,`.`).trim())
+    const número2 = Number(prompt(`Informe um segundo número `).replace(`,`,`.`).trim())
+    const oper = prompt(`Qual operação você deseja. (+)Adição, (-)Subtração, (*)Multiplicação e (/)Divisão`)
 
+    let mensagem = ``
 
-    //PROCESSAMENTO
+    switch (oper){
+        case `+`:
+            resul = número1 + número2
+            break;
+        case `-`:
+            resul = número1 - número2
+            break;
+        case `*`:
+            resul = número1 * número2
+            break;
+        case `/`:
+            resul = número1 / número2
+            break;
+    }
+    
+    switch (Number.isInteger(resul)){
+        case true:
+            mensagem = mensagem + `O número é inteiro. `
+            break;
+
+        case false:
+            mensagem = mensagem + `O número é decimal. `
+            break;
+    }
 
     
-    //SAÍDA
 
+    switch (resul % 2){
+        case 0:
+            mensagem = mensagem + `O número é par. `
+            break;
+
+        default:
+            mensagem = mensagem + `O número é ímpar. `
+            break;
+    }
+
+    switch (resul < 0){
+        case true:
+            mensagem = mensagem + `O número é negativo. `
+            break;
+
+        case false:
+            mensagem = mensagem + `O número é positivo. `
+            break;
+    }
+
+    alert(mensagem)
 </script>
